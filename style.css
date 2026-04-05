@@ -1,0 +1,563 @@
+/* =========================
+   COLOR VARIABLES
+========================= */
+:root {
+  --primary: #dc2626;
+  --primary-dark: #b91c1c;
+  --primary-light: #fee2e2;
+  --dark: #0f172a;
+  --text: #1f2937;
+  --text-light: #475569;
+  --white: #ffffff;
+  --bg-light: #f8fafc;
+  --border: #e5e7eb;
+  --shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+  --shadow-hover: 0 20px 40px rgba(15, 23, 42, 0.14);
+  --radius: 18px;
+}
+
+/* =========================
+   RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  background-color: var(--bg-light);
+  color: var(--text);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  padding-left: 1.25rem;
+}
+
+section {
+  padding: 100px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.container {
+  width: min(1120px, 90%);
+  margin: 0 auto;
+}
+
+.narrow-container {
+  max-width: 860px;
+}
+
+/* =========================
+   TEXT
+========================= */
+h1,
+h2,
+h3 {
+  color: var(--dark);
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 1.7rem;
+}
+
+h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+}
+
+p {
+  color: var(--text-light);
+}
+
+.section-intro,
+.pricing-note,
+.booking-note,
+.contact-note,
+.trust-text {
+  text-align: center;
+  max-width: 760px;
+  margin: 0.75rem auto 0;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.btn-primary,
+.btn-secondary {
+  display: inline-block;
+  padding: 0.95rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 700;
+  transition: 0.3s ease;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--white);
+  box-shadow: 0 10px 20px rgba(220, 38, 38, 0.28);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-3px) scale(1.02);
+}
+
+.btn-secondary {
+  background-color: var(--white);
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--primary-light);
+  transform: translateY(-3px) scale(1.02);
+}
+
+/* =========================
+   HEADER
+========================= */
+.site-header {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: 1rem 0;
+  position: relative;
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.nav-menu ul {
+  list-style: none;
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  padding-left: 0;
+}
+
+.nav-menu a {
+  color: var(--text);
+  font-weight: 600;
+  position: relative;
+}
+
+.nav-menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.nav-menu a:hover {
+  color: var(--primary);
+}
+
+.nav-menu a:hover::after {
+  width: 100%;
+}
+
+/* hamburger hidden on desktop */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.hamburger span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background-color: var(--dark);
+  margin: 5px 0;
+  border-radius: 999px;
+  transition: 0.3s ease;
+}
+
+/* animate hamburger into X */
+.hamburger.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* =========================
+   HERO
+========================= */
+.hero {
+  background: linear-gradient(135deg, #fff5f5, #f8fafc);
+  text-align: center;
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+.hero h2 {
+  font-size: 3.2rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  max-width: 760px;
+  margin: 0 auto 1rem;
+}
+
+.hero p {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 1.08rem;
+}
+
+.hero-buttons {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.trust-text {
+  font-weight: 700;
+  color: var(--primary);
+  margin-top: 1.4rem;
+}
+
+/* =========================
+   ABOUT
+========================= */
+.about {
+  background-color: var(--white);
+}
+
+.about .container {
+  text-align: center;
+}
+
+/* =========================
+   SERVICES
+========================= */
+.services {
+  background-color: var(--bg-light);
+}
+
+.service-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.service-card,
+.pricing-card,
+.feature-box,
+.contact-item {
+  transition: 0.3s ease;
+}
+
+.service-card:hover,
+.pricing-card:hover,
+.feature-box:hover,
+.contact-item:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+}
+
+.service-card {
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(229, 231, 235, 0.65);
+}
+
+.service-card ul {
+  margin: 1rem 0 1.25rem;
+}
+
+.service-card li {
+  margin-bottom: 0.75rem;
+  color: var(--text-light);
+}
+
+/* =========================
+   WHY CHOOSE US
+========================= */
+.why-choose-us {
+  background-color: var(--white);
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.feature-box {
+  background-color: var(--bg-light);
+  padding: 1.5rem;
+  border-radius: 16px;
+  text-align: center;
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+}
+
+/* =========================
+   PRICING
+========================= */
+.pricing {
+  background-color: var(--bg-light);
+}
+
+.pricing-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.pricing-card {
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  border: 1px solid rgba(229, 231, 235, 0.65);
+}
+
+.price {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin: 0.8rem 0 1rem;
+}
+
+.pricing-note {
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+}
+
+/* =========================
+   BOOKING
+========================= */
+.booking {
+  background-color: var(--white);
+  text-align: center;
+}
+
+.booking-buttons {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* =========================
+   POLICY
+========================= */
+.policy {
+  background-color: var(--bg-light);
+}
+
+.policy-content {
+  max-width: 860px;
+  margin: 2rem auto 0;
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(229, 231, 235, 0.65);
+}
+
+.policy-content ul li {
+  margin-bottom: 1rem;
+  color: var(--text-light);
+}
+
+/* =========================
+   CONTACT
+========================= */
+.contact {
+  background-color: var(--white);
+}
+
+.contact-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.contact-item {
+  background-color: var(--bg-light);
+  padding: 1.5rem;
+  border-radius: 16px;
+  text-align: center;
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+}
+
+/* =========================
+   FOOTER
+========================= */
+.site-footer {
+  background-color: var(--dark);
+  color: var(--white);
+  text-align: center;
+  padding: 3.5rem 20px;
+}
+
+.site-footer h2,
+.site-footer p {
+  color: var(--white);
+}
+
+.site-footer p {
+  margin-top: 0.5rem;
+}
+
+.copyright {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #cbd5e1;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+  .hero h2 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-wrap: nowrap;
+  }
+
+  .hamburger {
+    display: block;
+    margin-left: auto;
+  }
+
+  .header-cta {
+    display: none;
+  }
+
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--white);
+    border-top: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    padding: 1rem 0;
+  }
+
+  .nav-menu.active {
+    display: block;
+  }
+
+  .nav-menu ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .nav-menu li {
+    width: 100%;
+  }
+
+  .nav-menu a {
+    display: block;
+    padding: 0.9rem 1.25rem;
+  }
+
+  .nav-menu a::after {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero h2 {
+    font-size: 2rem;
+  }
+
+  .hero-buttons,
+  .booking-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  section {
+    padding: 70px 20px;
+  }
+}
+
+/* =========================
+   NOTES / REFERENCES
+
+   Used MDN Web Docs as main reference when learning
+   how to style things like forms and tables.
+
+   Tables:
+   https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Styling_tables
+
+   Forms:
+   https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Styling_forms
+
+   Also used ChatGPT for guidance when I got stuck,
+   but made sure to understand and adjust the code myself.
+========================= */
